@@ -11,11 +11,4 @@ final3 = final2 * final
 final4 = final * final2 / final3
 theKey = final4 * final4 / final / final2 / final3 / final4
 
-
-world = 
-freeme = 
-final = 
-final2 = 
-final3 = 
-final4 = 
-theKey = 
+print(theKey)
