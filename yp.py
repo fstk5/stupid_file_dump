@@ -64,11 +64,8 @@ sha256fk5 = hashlib.sha256(readfk5)
 adminPWDData = readAdmin.read()
 fk5PWDData = readfk5.read()
 
-filefk5 = Encrypt(fk5Password, delimiter=':')
-fileadmin = Encrypt(adminPassword, delimiter=':')
-
-decryptedfk5Password = filefk5.aes_decrypt(theKey, commit=True)
-decryptedAdminPassword = fileadmin.aes_decrypt(theKey, commit=True)
+decryptedfk5Password = readfk5.aes_decrypt(theKey, commit=True)
+decryptedAdminPassword = readAdmin.aes_decrypt(theKey, commit=True)
 
 if adminPWDData or fk5PWDData == "":
     readAdmin.close()
@@ -154,7 +151,7 @@ def coolUsernameThing():
         currentUser = inputtedUsername
         isUsernameCorrect = True
     else:
-        print("Incorrect Username.")
+        print("User not found.")
         isUsernameCorrect = False
 
 #keep asking for the username until is uses the correct one
@@ -169,7 +166,7 @@ def coolPasswordThing():
     global isPasswordCorrect
     if currentUser == fk5:
         def fk5Authentication():
-            if passwd == fk5PWDData:
+            if passwd == decryptedfk5Password:
                 print("User fk5 authenticated.")
                 time.sleep(1)
                 os.system('cls')
@@ -197,6 +194,7 @@ def coolPasswordThing():
         if howTFDidYouGetHere == "2215189394":
             print("I don't even know how you got that number.\nJust take the admin account.")
             time.sleep(3)
+            currentUser = admin
         else:
             readAdmin.close()
             readfk5.close()
