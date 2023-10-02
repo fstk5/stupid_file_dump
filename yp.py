@@ -8,7 +8,7 @@
 
 import os
 import time
-import securefile
+from securefile import Encrypt
 import hashlib
 import sys
 
@@ -32,7 +32,7 @@ def cpuCheckActualCheck():
     else:
         print("Invalid answer.")
 cpuCheckCorrect = False
-while cpuCheckCorrect = False:
+while cpuCheckCorrect == False:
     cpuCheckAsk()
     cpuCheckActualCheck()
 
