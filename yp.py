@@ -1,5 +1,5 @@
 #change the numeral of how many times you've opened this
-#XXXIX
+#XLV
 #THIS TEXT MUST ALWAYS GO LAST OR WHEN THE PROGRAM EXITS!!!!!!!
 #readAdmin.close()
 #readfk5.close()
@@ -39,18 +39,7 @@ while cpuCheckCorrect == False:
 #Get and assign user passwords to variables
 #P.S. you aint getting the passwords that easy ;)
 
-hell = 4823056873426594372865487380256347265748301632874061
-heaven = 43789201758921096372410392756726437896304320240437295401545490
-mortal = 9230293290328931574895065347652736481039248072375248632164132
-immortal = 432871905830275215
-free = 32189704389470144893704178439017825217
-world = mortal * immortal
-freeme = free * mortal
-final = freeme + world * heaven / hell
-final2 = final * final / final / final / final + final + final - final
-final3 = final2 * final
-final4 = final * final2 / final3
-theKey = final4 * final4 / final / final2 / final3 / final4
+theKey = "reimplementing the obfuscation technique, math doesn't work effectively"
 
 adminPassword = 'adminPassword.txt'
 fk5Password = 'fk5Password.txt'
@@ -64,8 +53,8 @@ sha256fk5 = hashlib.sha256(readfk5)
 adminPWDData = readAdmin.read()
 fk5PWDData = readfk5.read()
 
-decryptedfk5Password = readfk5.aes_decrypt(theKey, commit=True)
-decryptedAdminPassword = readAdmin.aes_decrypt(theKey, commit=True)
+decryptedfk5Password = fk5PWDData.aes_decrypt(theKey, commit=True)
+decryptedAdminPassword = adminPWDData.aes_decrypt(theKey, commit=True)
 
 if adminPWDData or fk5PWDData == "":
     readAdmin.close()
