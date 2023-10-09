@@ -180,7 +180,7 @@ def coolPasswordThing():
     elif currentUser == "boioioioioioioioioiooioioioioioioioioioioioiooioiioiioioong":
         os.system('cls')
         howTFDidYouGetHere = input("How did you get here?")
-        if howTFDidYouGetHere == "2215189394":
+        if howTFDidYouGetHere == "321654978123456789":
             print("I don't even know how you got that number.\nJust take the admin account.")
             time.sleep(3)
             currentUser = admin
