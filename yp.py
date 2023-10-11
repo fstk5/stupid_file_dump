@@ -36,47 +36,6 @@ while cpuCheckCorrect == False:
     cpuCheckAsk()
     cpuCheckActualCheck()
 
-#Get and assign user passwords to variables
-#P.S. you aint getting the passwords that easy ;)
-
-theKey = "reimplementing the obfuscation technique, math doesn't work effectively"
-
-adminPassword = 'adminPassword.txt'
-fk5Password = 'fk5Password.txt'
-
-readAdmin = open(adminPassword, 'r')
-readfk5 = open(fk5Password, 'r')
-
-sha256Admin = hashlib.sha256(readAdmin)
-sha256fk5 = hashlib.sha256(readfk5)
-
-adminPWDData = readAdmin.read()
-fk5PWDData = readfk5.read()
-
-decryptedfk5Password = fk5PWDData.aes_decrypt(theKey, commit=True)
-decryptedAdminPassword = adminPWDData.aes_decrypt(theKey, commit=True)
-
-if adminPWDData or fk5PWDData == "":
-    readAdmin.close()
-    readfk5.close()
-    sys.exit("Critical files damaged and/or deleted. Exiting file...")
-else:
-    os.system('cls')
-
-if sha256Admin != "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918":
-    readAdmin.close()
-    readfk5.close()
-    sys.exit("Critical files damaged and/or deleted. Exiting file...")
-else:
-    os.system('cls')
-
-if sha256fk5 != "711faa969abbf8f95f05aa2f2e2b03662febfc1c942f5568f9d0d155c4c9860f":
-    readAdmin.close()
-    readfk5.close()
-    sys.exit("Critical files damaged and/or deleted. Exiting file...")
-else:
-    os.system('cls')
-
 #Defining the animation for the loading screen thingy
 
 def coolAnimationPart():
@@ -147,6 +106,47 @@ def coolUsernameThing():
 
 while isUsernameCorrect == False:
     coolUsernameThing()
+
+passwordEncryptionKey = input("Please enter your password encryption key.\nIf this key is incorrect, the password will not decrypt correctly and you will not be able to enter your account.\n")
+
+#Get and assign user passwords to variables
+#P.S. you aint getting the passwords that easy ;)
+
+adminPassword = 'adminPassword.txt'
+fk5Password = 'fk5Password.txt'
+
+readAdmin = open(adminPassword, 'r')
+readfk5 = open(fk5Password, 'r')
+
+sha256Admin = hashlib.sha256(readAdmin)
+sha256fk5 = hashlib.sha256(readfk5)
+
+adminPWDData = readAdmin.read()
+fk5PWDData = readfk5.read()
+
+decryptedfk5Password = fk5PWDData.aes_decrypt(passwordEncryptionKey, commit=True)
+decryptedAdminPassword = adminPWDData.aes_decrypt(passwordEncryptionKey, commit=True)
+
+if adminPWDData or fk5PWDData == "":
+    readAdmin.close()
+    readfk5.close()
+    sys.exit("Critical files damaged and/or deleted. Exiting file...")
+else:
+    os.system('cls')
+
+if sha256Admin != "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918":
+    readAdmin.close()
+    readfk5.close()
+    sys.exit("Critical files damaged and/or deleted. Exiting file...")
+else:
+    os.system('cls')
+
+if sha256fk5 != "711faa969abbf8f95f05aa2f2e2b03662febfc1c942f5568f9d0d155c4c9860f":
+    readAdmin.close()
+    readfk5.close()
+    sys.exit("Critical files damaged and/or deleted. Exiting file...")
+else:
+    os.system('cls')
 
 #same as coolUsernameThing(), but for the password
 

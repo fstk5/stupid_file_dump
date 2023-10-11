@@ -1,0 +1,5 @@
+code is currently broken
+
+fk5Password key is 952E22D8619B9AC67E6422AD8D3FF
+adminPassword key is E374B2AA2E3494C3BB5976364E3FD
+ill fix it later i dont have enough time
