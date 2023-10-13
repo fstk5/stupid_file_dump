@@ -1,5 +1,5 @@
 #change the numeral of how many times you've opened this
-#XLV
+#LI
 #THIS TEXT MUST ALWAYS GO LAST OR WHEN THE PROGRAM EXITS!!!!!!!
 #readAdmin.close()
 #readfk5.close()
@@ -28,7 +28,7 @@ def cpuCheckActualCheck():
         global cpuCheckCorrect
         cpuCheckCorrect = True
     elif cpuCheck == "n":
-        sys.exit("cpuCheckActualCheck() failed.")
+        sys.exit(1)
     else:
         print("Invalid answer.")
 cpuCheckCorrect = False
