@@ -12,30 +12,6 @@ from securefile import Encrypt
 import hashlib
 import sys
 
-#checking that threading'll work
-
-global cpuCheckCorrect
-def cpuCheckAsk():
-    global cpuCheck
-    print("Please ensure your CPU has at least 2 threads, or a single-core CPU with hyperthreading enabled.")
-    cpuCheck = input("\nDo you have one of these? y or n")
-def cpuCheckActualCheck():
-    if cpuCheck == "y":
-        os.system('cls')
-        print("Input accepted.")
-        time.sleep(1)
-        os.system('cls')
-        global cpuCheckCorrect
-        cpuCheckCorrect = True
-    elif cpuCheck == "n":
-        sys.exit(1)
-    else:
-        print("Invalid answer.")
-cpuCheckCorrect = False
-while cpuCheckCorrect == False:
-    cpuCheckAsk()
-    cpuCheckActualCheck()
-
 #Defining the animation for the loading screen thingy
 
 def coolAnimationPart():
