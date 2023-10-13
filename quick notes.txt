@@ -2,4 +2,7 @@ code is currently broken
 
 fk5Password key is 952E22D8619B9AC67E6422AD8D3FFOW8
 adminPassword key is E374B2AA2E3494C3BB5976364E3FDWW7
-ill fix it later i dont have enough time
+
+file keys are
+admin: urSYBEntGkGtEUmxrLYVb88WRJUy1MHh
+fk5: la78kgK6egDzfi3HKCgpQZpeeJby5Mnk

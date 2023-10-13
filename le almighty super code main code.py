@@ -110,14 +110,14 @@ if adminPWDData or fk5PWDData == "":
 else:
     os.system('cls')
 
-if sha256Admin != "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918":
+if sha256Admin != "7e41e166f2218f01e6ba65947be5c1fcef5ce093a00e13a1e7429c5bc33bf44f":
     readAdmin.close()
     readfk5.close()
     sys.exit("Critical files damaged and/or deleted. Exiting file...")
 else:
     os.system('cls')
 
-if sha256fk5 != "711faa969abbf8f95f05aa2f2e2b03662febfc1c942f5568f9d0d155c4c9860f":
+if sha256fk5 != "6220d1f8c3b624cc0814611eb24929a1c9de10ba427c2d0546c8d09bee495c1f":
     readAdmin.close()
     readfk5.close()
     sys.exit("Critical files damaged and/or deleted. Exiting file...")
@@ -172,6 +172,33 @@ while isPasswordCorrect == False:
     coolPasswordThing()
 os.system('cls')
 
+#gets decryption key for files
+
+global decypherKey
+def fileDecypher():
+    os.system('cls')
+    if currentUser == admin or fk5:
+        os.system('cls')
+        decypherKey = input("Input file decypher key.\n")
+        os.system('cls')
+    else:
+        os.system('cls')
+        print("Ok, how are you even doing this?")
+        time.sleep(1)
+        os.exit(1)
+    def recheck():
+        recheckVar = ("The decypher key length is " + len(decypherKey) + " characters long.\nDo you want to continue?")
+        if recheckVar == "Y" or "y" or "yes":
+            os.system('cls')
+        elif recheckVar == "N" or "n" or "no":
+            print("Ok.")
+            fileDecypher()
+        else:
+            print("Invalid answer.")
+            recheck()
+
+fileDecypher()
+
 #defines the file vault initialization
 
 global isInputCorrect
@@ -186,8 +213,10 @@ def fileVaultInit():
 #defining the options
 
 def fileViewer():
+    os.system('cls')
     print("What file would you like to view?")
 def fileDeleter():
+    os.system('cls')
     print("What file would you like to delete?")
 
 #defines the file vault option backend
