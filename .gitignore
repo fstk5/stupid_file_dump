@@ -1,0 +1,5 @@
+*.json
+*.pyo
+#is this how you write a gitignore????
+#what are json files used for
+#nvm i'll look it up on stackoverflow or smth

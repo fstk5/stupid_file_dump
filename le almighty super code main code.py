@@ -8,8 +8,8 @@
 
 import os
 import time
-from securefile import Encrypt
 import hashlib
+import getpass
 import sys
 
 #Defining the animation for the loading screen thingy
@@ -83,7 +83,7 @@ def coolUsernameThing():
 while isUsernameCorrect == False:
     coolUsernameThing()
 
-passwordEncryptionKey = input("Please enter your password encryption key.\nIf this key is incorrect, the password will not decrypt correctly and you will not be able to enter your account.\n")
+passwordEncryptionKey = getpass.getpass("Please enter your password encryption key.\nIf this key is incorrect, the password will not decrypt correctly and you will not be able to enter your account.\n")
 
 #Get and assign user passwords to variables
 #P.S. you aint getting the passwords that easy ;)
@@ -127,7 +127,7 @@ else:
 #same as coolUsernameThing(), but for the password
 
 def coolPasswordThing():
-    passwd = input("Please enter password. ")
+    passwd = getpass.getpass("Please enter password. ")
     global isPasswordCorrect
     if currentUser == fk5:
         def fk5Authentication():
@@ -155,7 +155,7 @@ def coolPasswordThing():
             adminAuthentication()
     elif currentUser == "boioioioioioioioioiooioioioioioioioioioioioiooioiioiioioong":
         os.system('cls')
-        howTFDidYouGetHere = input("How did you get here?")
+        howTFDidYouGetHere = getpass.getpass("How did you get here?")
         if howTFDidYouGetHere == "321654978123456789":
             print("I don't even know how you got that number.\nJust take the admin account.")
             time.sleep(3)
@@ -179,7 +179,7 @@ def fileDecypher():
     os.system('cls')
     if currentUser == admin or fk5:
         os.system('cls')
-        decypherKey = input("Input file decypher key.\n")
+        decypherKey = getpass.getpass("Input file decypher key.\n")
         os.system('cls')
     else:
         os.system('cls')
@@ -187,11 +187,12 @@ def fileDecypher():
         time.sleep(1)
         os.exit(1)
     def recheck():
-        recheckVar = ("The decypher key length is " + len(decypherKey) + " characters long.\nDo you want to continue?")
+        recheckVar = ("The decypher key length is " + len(decypherKey) + " characters long.\nDo you want to continue?\nThe key should be 32 characters long.\n")
         if recheckVar == "Y" or "y" or "yes":
             os.system('cls')
         elif recheckVar == "N" or "n" or "no":
-            print("Ok.")
+            print("Restarting check...")
+            time.sleep(1)
             fileDecypher()
         else:
             print("Invalid answer.")
