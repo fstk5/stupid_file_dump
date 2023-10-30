@@ -1,5 +1,5 @@
 #change the numeral of how many times you've opened this
-#LI
+#LXII
 #THIS TEXT MUST ALWAYS GO LAST OR WHEN THE PROGRAM EXITS!!!!!!!
 #readAdmin.close()
 #readfk5.close()
@@ -88,11 +88,11 @@ passwordEncryptionKey = getpass.getpass("Please enter your password encryption k
 #Get and assign user passwords to variables
 #P.S. you aint getting the passwords that easy ;)
 
-adminPassword = 'adminPassword.txt'
-fk5Password = 'fk5Password.txt'
+openAdmin = open('adminPassword.txt', 'r')
+openfk5 = open('fk5Password.txt', 'r')
 
-readAdmin = open(adminPassword, 'r')
-readfk5 = open(fk5Password, 'r')
+readfk5 = openfk5.read()
+readAdmin = openAdmin.read()
 
 sha256Admin = hashlib.sha256(readAdmin)
 sha256fk5 = hashlib.sha256(readfk5)
@@ -106,21 +106,21 @@ decryptedAdminPassword = adminPWDData.aes_decrypt(passwordEncryptionKey, commit=
 if adminPWDData or fk5PWDData == "":
     readAdmin.close()
     readfk5.close()
-    sys.exit("Critical files damaged and/or deleted. Exiting file...")
+    sys.exit("Critical files damaged and/or deleted.")
 else:
     os.system('cls')
 
 if sha256Admin != "7e41e166f2218f01e6ba65947be5c1fcef5ce093a00e13a1e7429c5bc33bf44f":
     readAdmin.close()
     readfk5.close()
-    sys.exit("Critical files damaged and/or deleted. Exiting file...")
+    sys.exit("Critical files damaged and/or deleted.")
 else:
     os.system('cls')
 
 if sha256fk5 != "6220d1f8c3b624cc0814611eb24929a1c9de10ba427c2d0546c8d09bee495c1f":
     readAdmin.close()
     readfk5.close()
-    sys.exit("Critical files damaged and/or deleted. Exiting file...")
+    sys.exit("Critical files damaged and/or deleted.")
 else:
     os.system('cls')
 
@@ -185,20 +185,23 @@ def fileDecypher():
         os.system('cls')
         print("Ok, how are you even doing this?")
         time.sleep(1)
-        os.exit(1)
-    def recheck():
-        recheckVar = ("The decypher key length is " + len(decypherKey) + " characters long.\nDo you want to continue?\nThe key should be 32 characters long.\n")
-        if recheckVar == "Y" or "y" or "yes":
-            os.system('cls')
-        elif recheckVar == "N" or "n" or "no":
-            print("Restarting check...")
-            time.sleep(1)
-            fileDecypher()
-        else:
-            print("Invalid answer.")
-            recheck()
+        os._exit(1)
+def recheck():
+    recheckVar = ("The decypher key length is ", len(decypherKey), " characters long.\nDo you want to continue?\nThe key should be 32 characters long.\n")
+    if recheckVar == "Y" or "y" or "yes":
+        os.system('cls')
+    elif recheckVar == "N" or "n" or "no":
+        def load2():
+            print("Reloading.")
+            time.sleep
+        time.sleep(1)
+        fileDecypher()
+    else:
+        print("Invalid answer.")
+        fileDecypher()
 
 fileDecypher()
+recheck()
 
 #defines the file vault initialization
 
@@ -208,7 +211,7 @@ def fileVaultInit():
     readAdmin.close()
     print("Welcome to your file vault, " + currentUser + "\n")
     global ask
-    ask = input("What would you like to do?\n1: Open a file\n2: Delete a file\n\nUse Ctrl C to exit")
+    ask = input("What would you like to do?\n1: Open a file\n2: Delete a file\n\nUse Ctrl+C to exit")
     isInputCorrect = False
 
 #defining the options
@@ -239,7 +242,7 @@ def fileVaultDecision():
         os.system('cls')
 
 #uses a loop for the file vault until it returns a correct option
-    
+
 def fileVaultDecisionLoop():
     while isInputCorrect == False:
         fileVaultInit()
